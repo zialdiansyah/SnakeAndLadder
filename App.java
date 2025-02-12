@@ -7,7 +7,7 @@ public class App
     {
         Scanner sc = new Scanner(System.in);
 
-        int[] cells = new int[100];
+        int[] cells = new int[101];
         int totalSnakes = sc.nextInt();
         for (int i = 0; i < totalSnakes; i++)
             cells[sc.nextInt()] = sc.nextInt();

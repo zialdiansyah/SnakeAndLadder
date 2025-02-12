@@ -19,16 +19,16 @@ public class Game {
         int turn = 0;
         curPlayer = setPlayers(turn, players);
         while (!isGameEnded()) {
-            int diceValue = getDiceValue();
-            movePlayerPosition(curPlayer, diceValue);
-            turn++;
             if(turn == totalPlayers) {
                 turn = 0;
             }
             curPlayer = setPlayers(turn, players);
+            int diceValue = getDiceValue();
+            movePlayerPosition(curPlayer, diceValue);
             if (curPlayer.getPosition() == 100) {
                 System.out.println(curPlayer.getName() + " won the game!");
             }
+            turn++;
         }
     }
 
@@ -47,12 +47,14 @@ public class Game {
         if(nextPosition > 100) {
             nextPosition = currPosition;
         }
-        if(cells[nextPosition-1] == 0) {
+        if(cells[nextPosition] == 0) {
             player.setPosition(nextPosition);
         } else {
-            player.setPosition(nextPosition-1);
+            nextPosition = cells[nextPosition];
+            player.setPosition(nextPosition);
         }
 
         System.out.println(player.getName() + " rolled a " + diceValue + " moved from position " + currPosition + " to " + nextPosition);
+
     }
 }
