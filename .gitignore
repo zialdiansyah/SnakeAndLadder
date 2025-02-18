@@ -1,3 +1,5 @@
-.mnv
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
 .vscode
+*.class
 /target
